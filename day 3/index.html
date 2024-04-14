@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>simple Calculator</title>
+  </head>
+  <body>
+    <label for="first-number"> First Number</label>
+    <input
+      type="number"
+      style="display: block; margin-bottom: 30px"
+      id="first-number"
+      class="first-number"
+    />
+    <button class="operator" onclick="operator = '+';">+</button>
+    <button class="operator" onclick="operator = '-';">-</button>
+    <button class="operator" onclick="operator = '*';">*</button>
+    <button class="operator" onclick="operator = '/';">/</button>
+    <label for="second-number" style="display: block; margin-top: 30px">
+      second Number</label
+    >
+    <input
+      type="number"
+      style="display: block"
+      id="second-number"
+      class="second-number"
+    />
+    <button
+      class="calculate"
+      onclick="calculate(operator);"
+      style="margin-top: 30px"
+    >
+      calculate
+    </button>
+    <p class="show-results"></p>
+
+    <script>
+      let operator = '';
+      function calculate(operator) {
+        const firstNumber = document.querySelector('.first-number');
+        const secondNumber = document.querySelector('.second-number');
+        let number1 = Number(firstNumber.value);
+        let number2 = Number(secondNumber.value);
+        let answer = '';
+        switch (operator) {
+          case '+':
+            answer = number1 + number2;
+            break;
+          case '-':
+            answer = number1 - number2;
+            break;
+          case '*':
+            answer = number1 * number2;
+            break;
+          case '/':
+            answer = number1 / number2;
+            break;
+        }
+        // console.log(answer);
+        document.querySelector(
+          '.show-results'
+        ).innerHTML = ` ${number1} ${operator} ${number2} = ${answer}`;
+      }
+    </script>
+  </body>
+</html>
