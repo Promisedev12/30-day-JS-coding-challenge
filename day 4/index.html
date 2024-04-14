@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array inverter</title>
+  </head>
+  <body>
+    <label for="input"
+      >enter the values of the array. separate the values with ","</label
+    >
+    <input type="text" id="input" />
+    <button style="display: block; margin-top: 30px" onclick="reversArray()">
+      reverse values
+    </button>
+    <p class="showResults"></p>
+    <script>
+      function reversArray() {
+        let textInput = document.querySelector('#input').value;
+        arrayOriginal = textInput.split(',');
+        let j = 0;
+        let invertedArray = [];
+        for (let i = arrayOriginal.length - 1; i >= 0; i--) {
+          invertedArray[j] = arrayOriginal[i];
+          j++;
+        }
+        document.querySelector('.showResults').innerHTML = invertedArray;
+      }
+    </script>
+  </body>
+</html>
